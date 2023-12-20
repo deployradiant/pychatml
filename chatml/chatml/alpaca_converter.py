@@ -1,4 +1,4 @@
-from abstractconverter import ChatMLConverter
+from chatml.chatml.abstract_converter import ChatMLConverter
 from typing import List, Dict, Any
 
 
