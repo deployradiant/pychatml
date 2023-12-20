@@ -21,6 +21,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Set working directory
+        run: cd chatml
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
