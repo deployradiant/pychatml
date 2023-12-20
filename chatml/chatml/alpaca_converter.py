@@ -1,5 +1,10 @@
-class ChatMLConverter:
-    def to_chatml(self, chat_interface):
+from chatml.chatml.abstract_converter import ChatMLConverter
+from typing import List, Dict, Any
+
+
+class AlpacaConverter(ChatMLConverter):
+    
+    def to_chatml(self, chat_interface) -> List[Dict[str, str]]:
         """
         Converts a chat interface to the ChatML format.
         
@@ -10,9 +15,13 @@ class ChatMLConverter:
             str: The chat interface in ChatML format.
         """
         # TODO: Implement the conversion logic
+
+
+
+
         pass
 
-    def from_chatml(self, chatml):
+    def from_chatml(self, chatml: List[Dict[str, str]]) -> Any:
         """
         Converts a chat interface from the ChatML format.
         
