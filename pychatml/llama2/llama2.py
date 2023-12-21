@@ -35,7 +35,7 @@ def to_chatml(llama_prompt: str) -> List[Dict[str, str]]:
     return messages
 
 
-def from_chatml(messages: List[Dict[str, str]]) -> Any:
+def from_chatml(messages: List[Dict[str, str]]) -> str:
     """
     Converts ChatML to llama2
 
@@ -43,7 +43,7 @@ def from_chatml(messages: List[Dict[str, str]]) -> Any:
         chatml (str): The chat interface in ChatML format.
 
     Returns:
-        Any: The converted chat interface.
+        str: The converted prompt.
     """
 
     # taken from https://github.com/facebookresearch/llama/blob/82ce861078ce1d2a1ac17db15bda3604c684ccbe/llama/generation.py#L212

@@ -5,3 +5,4 @@
 # You can add any initialization code here if needed.
 from .anthropic import anthropic
 from .llama2 import llama2
+from .alpaca import alpaca

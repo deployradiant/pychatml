@@ -1,8 +1,7 @@
-from typing import List, Dict, Any
+from typing import List, Dict
 import re
 
 from anthropic import AI_PROMPT, HUMAN_PROMPT
-from anthropic.types import Completion
 
 
 def to_chatml(prompt: str) -> List[Dict[str, str]]:
@@ -29,7 +28,7 @@ def to_chatml(prompt: str) -> List[Dict[str, str]]:
     return chat_messages
 
 
-def from_chatml(chatml: List[Dict[str, str]]) -> Any:
+def from_chatml(chatml: List[Dict[str, str]]) -> str:
     """
     Converts a chat interface from the ChatML format.
 
@@ -37,7 +36,7 @@ def from_chatml(chatml: List[Dict[str, str]]) -> Any:
         chatml (str): The chat interface in ChatML format.
 
     Returns:
-        Any: The converted chat interface.
+        str: The converted prompt.
     """
 
     stringified_prompt = ""
