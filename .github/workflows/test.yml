@@ -22,9 +22,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        working-directory: ./pychatml
         run: pip install -r requirements.txt
 
       - name: Run pytest
-        working-directory: ./pychatml
         run: pytest
