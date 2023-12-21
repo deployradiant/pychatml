@@ -17,7 +17,7 @@ Makes it easy to integrate between different chat formats and models.
 ```python
 import pychatml
 
-PROMPT = """[INST Hi, how are you? [/INST] Good thanks! 
+PROMPT = """[INST] Hi, how are you? [/INST] Good thanks! 
 [INST] Can you help me with this math program? [/INST]"""
 
 pychatml.llama2.to_chatml(PROMPT)
