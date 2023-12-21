@@ -10,6 +10,7 @@ If a question does not make any sense, or is not factually coherent, explain why
 
 Hi, how are you? [/INST] Good thanks! 
 [INST] Can you help me with this math program? [/INST]"""
+
 EXPECTED_CHATML = [
     {
         "role": "system",
@@ -26,7 +27,7 @@ If a question does not make any sense, or is not factually coherent, explain why
 class TestLlama2(unittest.TestCase):
     def test_to_chatml(self):
         chatml = pychatml.llama2.to_chatml(EXPECTED_PROMPT)
-        raise ValueError(chatml)
+
         assert isinstance(chatml, list)
         assert len(chatml) > 0
         assert isinstance(chatml[0], dict)
@@ -34,7 +35,6 @@ class TestLlama2(unittest.TestCase):
 
     def test_from_chatml(self):
         result = pychatml.llama2.from_chatml(EXPECTED_CHATML)
-        print(result)
         assert isinstance(result, str)
         assert result == EXPECTED_PROMPT
 
