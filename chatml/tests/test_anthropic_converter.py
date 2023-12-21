@@ -1,15 +1,16 @@
 import unittest
 from anthropic import AI_PROMPT, HUMAN_PROMPT
 
-from chatml.anthropic_converter import AnthropicConverter
+from pychatml.anthropic_converter import AnthropicConverter
 
 converter = AnthropicConverter()
-EXPECTED_STRING  = f"{HUMAN_PROMPT} Hello there.\n{AI_PROMPT} Hi, I'm Claude. How can I help you?\n{HUMAN_PROMPT} Can you explain LLMs in plain English?\n{AI_PROMPT}"
+EXPECTED_STRING = f"{HUMAN_PROMPT} Hello there.\n{AI_PROMPT} Hi, I'm Claude. How can I help you?\n{HUMAN_PROMPT} Can you explain LLMs in plain English?\n{AI_PROMPT}"
 EXPECTED_CHATML = [
     {"role": "user", "content": "Hello there."},
     {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
     {"role": "user", "content": "Can you explain LLMs in plain English?"},
 ]
+
 
 class TestAnthropicConverter(unittest.TestCase):
     def setUp(self):
@@ -28,5 +29,6 @@ class TestAnthropicConverter(unittest.TestCase):
         assert isinstance(result, str)
         assert result == EXPECTED_STRING
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

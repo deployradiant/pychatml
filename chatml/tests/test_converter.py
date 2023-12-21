@@ -1,5 +1,5 @@
 import unittest
-from chatml.abstract_converter import ChatMLConverter
+from pychatml.abstract_converter import ChatMLConverter
 
 # class TestChatMLConverter(unittest.TestCase):
 #     def setUp(self):

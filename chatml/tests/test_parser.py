@@ -1,5 +1,6 @@
 import unittest
-from chatml.parser import ChatMLParser
+from pychatml.parser import ChatMLParser
+
 
 class TestChatMLParser(unittest.TestCase):
     def setUp(self):
@@ -13,5 +14,6 @@ class TestChatMLParser(unittest.TestCase):
         # Add your test case here
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
