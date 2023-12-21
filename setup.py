@@ -7,9 +7,7 @@ setup(
     author="Radiant AI",
     author_email="jakob@radiantai.com",
     packages=find_packages(),
-    install_requires=[
-        # List your dependencies here
-    ],
+    install_requires=["anthropic", "openai"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
