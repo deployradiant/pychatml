@@ -1,10 +1,9 @@
 import unittest
 from anthropic import AI_PROMPT, HUMAN_PROMPT
 
-from pychatml.anthropic_converter import AnthropicConverter
+import pychatml
 
-converter = AnthropicConverter()
-EXPECTED_STRING = f"{HUMAN_PROMPT} Hello there.\n{AI_PROMPT} Hi, I'm Claude. How can I help you?\n{HUMAN_PROMPT} Can you explain LLMs in plain English?\n{AI_PROMPT}"
+EXPECTED_PROMPT = f"{HUMAN_PROMPT} Hello there.\n{AI_PROMPT} Hi, I'm Claude. How can I help you?\n{HUMAN_PROMPT} Can you explain LLMs in plain English?\n{AI_PROMPT}"
 EXPECTED_CHATML = [
     {"role": "user", "content": "Hello there."},
     {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
@@ -12,22 +11,18 @@ EXPECTED_CHATML = [
 ]
 
 
-class TestAnthropicConverter(unittest.TestCase):
-    def setUp(self):
-        self.converter = AnthropicConverter()
-
+class TestAnthropic(unittest.TestCase):
     def test_to_chatml(self):
-        chatml = converter.to_chatml(EXPECTED_STRING)
-        print(chatml)
+        chatml = pychatml.anthropic.to_chatml(EXPECTED_PROMPT)
         assert isinstance(chatml, list)
         assert len(chatml) > 0
         assert isinstance(chatml[0], dict)
         assert chatml == EXPECTED_CHATML
 
     def test_from_chatml(self):
-        result = converter.from_chatml(EXPECTED_CHATML)
+        result = pychatml.anthropic.from_chatml(EXPECTED_CHATML)
         assert isinstance(result, str)
-        assert result == EXPECTED_STRING
+        assert result == EXPECTED_PROMPT
 
 
 if __name__ == "__main__":
