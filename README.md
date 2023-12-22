@@ -41,6 +41,10 @@ pychatml.llama2.to_chatml(PROMPT)
 ## Why?
 
 ![Motivation tweet](https://github.com/deployradiant/pychatml/assets/6087389/003d8898-d647-46d3-90cb-0051a8860519)
-
-
 https://github.com/OpenAccess-AI-Collective/axolotl/pull/982
+
+## Questions?
+
+Create an issue or discussion in this repository.
+
+Or, reach out to our team! [@jakob_frick](https://twitter.com/frick_jakob/), [@__anjor](https://twitter.com/__anjor), [@maxnajork](https://twitter.com/maxnajork) on X or [team@radiantai.com](mailto:team@radiantai.com).
