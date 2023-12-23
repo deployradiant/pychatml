@@ -9,7 +9,7 @@ def to_chatml(prompt: str) -> List[Dict[str, str]]:
     Converts the anthropic interface to the ChatML format (also used by Anthropic)
 
     Args:
-        chat_interface (str): The prompt to convert.
+        prompt (str): The prompt to convert.
 
     Returns:
         List[Dict[str, str]]: The chat interface in ChatML format.

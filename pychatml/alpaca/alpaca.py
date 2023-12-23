@@ -9,6 +9,7 @@ def to_chatml(
 
     Args:
         alpaca_input (List[Dict[str, str]]): The alpaca input to convert
+        treat_instruction_as_system_prompt (bool, optional): If true, the instruction will be treated as a system prompt. Defaults to False.
 
     Returns:
         List[Dict[str, str]]: The chat interface in ChatML format.
@@ -35,7 +36,7 @@ def from_chatml(messages: List[Dict[str, str]]) -> Dict[str, str]:
     Converts ChatML to llama2
 
     Args:
-        chatml (str): The chat interface in ChatML format.
+        messages: The messages object in ChatML format.
 
     Returns:
         Dict[str, str]: The alpaca chat interface.
