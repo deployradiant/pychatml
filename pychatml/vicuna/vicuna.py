@@ -19,8 +19,8 @@ def to_chatml(vicuna_prompt: str) -> List[Dict[str, str]]:
     Returns:
         List[Dict[str, str]]: The chat interface in ChatML format.
     """
-    P_EITHER = r'### Human: |### Assistant: '
-    B_HUMAN, B_ASSISTANT = "### Human: ", "### Assistant: "
+    P_EITHER = r'### Human:\n|### Assistant:\n'
+    B_HUMAN, B_ASSISTANT = "### Human:\n", "### Assistant:\n"
 
     vicuna_prompt = vicuna_prompt.strip()
 
@@ -56,3 +56,37 @@ def to_chatml(vicuna_prompt: str) -> List[Dict[str, str]]:
         )
 
     return messages
+
+
+def from_chatml(messages: List[Dict[str, str]]) -> str:
+    """
+    Converts ChatML to llama2
+
+    Args:
+        chatml (str): The chat interface in ChatML format.
+
+    Returns:
+        str: The converted prompt.
+    """
+
+    B_HUMAN, B_ASSISTANT = "### Human:\n", "### Assistant:\n"
+
+    system_messages = []
+    chat_messages = []
+    for message in messages:
+        if message["role"] == "system":
+            system_messages.append(message["content"].strip())
+            continue
+
+        if len(chat_messages) > 0 and chat_messages[-1]["role"] == message["role"]:
+            chat_messages[-1]["content"] += " " + message["content"].strip()
+        else:
+            chat_messages.append(message.copy())
+
+    system_prompt = " ".join(system_messages)
+
+    chat_history = [system_prompt]
+    for m in chat_messages:
+        b = B_HUMAN if m['role'] == 'user' else B_ASSISTANT
+        chat_history.append("".join([b, m['content']]))
+    return "\n".join(chat_history)
