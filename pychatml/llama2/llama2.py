@@ -39,7 +39,7 @@ def from_chatml(messages: List[Dict[str, str]]) -> str:
     Converts ChatML to llama2
 
     Args:
-        chatml (str): The chat interface in ChatML format.
+        messages: The messages object in ChatML format.
 
     Returns:
         str: The converted prompt.
