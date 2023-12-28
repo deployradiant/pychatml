@@ -13,6 +13,15 @@ class AbstractConverter(abc.ABC):
 
     @abstractmethod
     def to_chatml(self, prompt) -> List[Dict[str, str]]:
+        """
+        Converts the provider input to the ChatML format
+
+        Args:
+            prompt: The provider input to convert
+
+        Returns:
+            List[Dict[str, str]]: The chat interface in ChatML format.
+        """
         pass
 
     @abstractmethod

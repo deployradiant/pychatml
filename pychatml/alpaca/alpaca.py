@@ -1,6 +1,11 @@
 from typing import List, Dict
+from deprecated import deprecated
 
 
+@deprecated(
+    reason="This class is deprecated. Please use the AlpacaChatMLConverter instead.",
+    version="0.0.5",
+)
 def to_chatml(
     alpaca_input: Dict[str, str], treat_instruction_as_system_prompt: bool = False
 ) -> List[Dict[str, str]]:
@@ -31,6 +36,10 @@ def to_chatml(
     return messages
 
 
+@deprecated(
+    reason="This class is deprecated. Please use the AlpacaChatMLConverter instead.",
+    version="0.0.5",
+)
 def from_chatml(messages: List[Dict[str, str]]) -> Dict[str, str]:
     """
     Converts ChatML to llama2
