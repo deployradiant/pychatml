@@ -1,6 +1,6 @@
 import unittest
-import pychatml
 
+from pychatml.llama2_converter import Llama2
 
 EXPECTED_PROMPT = """[INST] <<SYS>>
 You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
@@ -26,7 +26,8 @@ If a question does not make any sense, or is not factually coherent, explain why
 
 class TestLlama2(unittest.TestCase):
     def test_to_chatml(self):
-        chatml = pychatml.llama2.to_chatml(EXPECTED_PROMPT)
+        converter = Llama2()
+        chatml = converter.to_chatml(EXPECTED_PROMPT)
 
         assert isinstance(chatml, list)
         assert len(chatml) > 0
@@ -34,7 +35,8 @@ class TestLlama2(unittest.TestCase):
         assert chatml == EXPECTED_CHATML
 
     def test_from_chatml(self):
-        result = pychatml.llama2.from_chatml(EXPECTED_CHATML)
+        converter = Llama2()
+        result = converter.from_chatml(EXPECTED_CHATML)
         assert isinstance(result, str)
         assert result == EXPECTED_PROMPT
 
