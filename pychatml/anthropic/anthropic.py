@@ -2,8 +2,13 @@ from typing import List, Dict
 import re
 
 from anthropic import AI_PROMPT, HUMAN_PROMPT
+from deprecated.classic import deprecated
 
 
+@deprecated(
+    reason="This function is deprecated. Please use the AnthropicChatMLConverter instead.",
+    version="0.0.5",
+)
 def to_chatml(prompt: str) -> List[Dict[str, str]]:
     """
     Converts the anthropic interface to the ChatML format (also used by Anthropic)
@@ -28,6 +33,10 @@ def to_chatml(prompt: str) -> List[Dict[str, str]]:
     return chat_messages
 
 
+@deprecated(
+    reason="This function is deprecated. Please use the AnthropicChatMLConverter instead.",
+    version="0.0.5",
+)
 def from_chatml(chatml: List[Dict[str, str]]) -> str:
     """
     Converts a chat interface from the ChatML format.

@@ -1,7 +1,7 @@
 import unittest
 from anthropic import AI_PROMPT, HUMAN_PROMPT
 
-import pychatml
+from pychatml.anthropic_converter import Anthropic
 
 EXPECTED_PROMPT = f"{HUMAN_PROMPT} Hello there.\n{AI_PROMPT} Hi, I'm Claude. How can I help you?\n{HUMAN_PROMPT} Can you explain LLMs in plain English?\n{AI_PROMPT}"
 EXPECTED_CHATML = [
@@ -13,14 +13,16 @@ EXPECTED_CHATML = [
 
 class TestAnthropic(unittest.TestCase):
     def test_to_chatml(self):
-        chatml = pychatml.anthropic.to_chatml(EXPECTED_PROMPT)
+        converter = Anthropic()
+        chatml = converter.to_chatml(EXPECTED_PROMPT)
         assert isinstance(chatml, list)
         assert len(chatml) > 0
         assert isinstance(chatml[0], dict)
         assert chatml == EXPECTED_CHATML
 
     def test_from_chatml(self):
-        result = pychatml.anthropic.from_chatml(EXPECTED_CHATML)
+        converter = Anthropic()
+        result = converter.from_chatml(EXPECTED_CHATML)
         assert isinstance(result, str)
         assert result == EXPECTED_PROMPT
 
