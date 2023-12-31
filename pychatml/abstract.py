@@ -3,7 +3,7 @@ from abc import abstractmethod
 from typing import Dict, List, Any
 
 
-class ChatMLConverter(abc.ABC):
+class AbstractConverter(abc.ABC):
     def __init__(self, provider):
         self._provider = provider
 
