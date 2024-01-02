@@ -15,12 +15,14 @@ pip install pychatml
 Makes it easy to integrate between different chat formats and models.
 
 ```python
-import pychatml
+from pychatml.llama2_converter import Llama2
 
 PROMPT = """[INST] Hi, how are you? [/INST] Good thanks! 
 [INST] Can you help me with this math program? [/INST]"""
 
-pychatml.llama2.to_chatml(PROMPT)
+converter = Llama2()
+
+converter.to_chatml(PROMPT)
 ```
 ```json
 [
