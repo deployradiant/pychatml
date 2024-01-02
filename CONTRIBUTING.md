@@ -9,6 +9,12 @@ Then follow these steps:
 2. **Feature requests**: Propose features by opening a new issue. Explain what the feature should do, how it would be used, and why you believe it would be a useful addition.
 3. **Pull Requests**: Fix or add functionality to the project by making changes to the codebase yourself. Ensure that your code is following the coding standards outlined in the next section and make sure all tests pass before submitting a PR.
 
+
+## Adding a new format
+
+If you want to add a new format, you can do so by creating a new file in the `pychatml` directory. The file should be named after the format you are adding. For example, if you are adding a new format called `foo`, you should create a file called `foo.py`.
+Implement the `AbstractConverter` class in this file. You can use the `Llama2` class as an example.
+
 ## Community
 
 We aim to maintain a welcoming and respectful community. Keep all discussions on topic and refrain from rude or inappropriate behavior. Keep in mind that this a place where people come to learn and share, so please respect their efforts.
