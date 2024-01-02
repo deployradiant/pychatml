@@ -1,6 +1,5 @@
 import unittest
-import pychatml
-
+from pychatml.alpaca_converter import Alpaca
 
 EXPECTED_INPUT = {
     "instruction": "Evaluate this sentence for spelling and grammar mistakes",
@@ -29,24 +28,27 @@ EXPECTED_CHATML_WITHOUT_SYSTEM = [
 
 class TestAlpaca(unittest.TestCase):
     def test_to_chatml(self):
-        chatml = pychatml.alpaca.to_chatml(EXPECTED_INPUT, True)
+        converter = Alpaca(treat_instruction_as_system_prompt=True)
+        chatml = converter.to_chatml(EXPECTED_INPUT)
         assert isinstance(chatml, list)
         assert len(chatml) > 0
         assert isinstance(chatml[0], dict)
         assert chatml == EXPECTED_CHATML_WITH_SYSTEM
 
-        chatml = pychatml.alpaca.to_chatml(EXPECTED_INPUT)
+        converter = Alpaca(treat_instruction_as_system_prompt=False)
+        chatml = converter.to_chatml(EXPECTED_INPUT)
         assert isinstance(chatml, list)
         assert len(chatml) > 0
         assert isinstance(chatml[0], dict)
         assert chatml == EXPECTED_CHATML_WITHOUT_SYSTEM
 
     def test_from_chatml(self):
-        result = pychatml.alpaca.from_chatml(EXPECTED_CHATML_WITH_SYSTEM)
+        converter = Alpaca()
+        result = converter.from_chatml(EXPECTED_CHATML_WITH_SYSTEM)
         assert isinstance(result, dict)
         assert result == EXPECTED_INPUT
 
-        result = pychatml.alpaca.from_chatml(EXPECTED_CHATML_WITHOUT_SYSTEM)
+        result = converter.from_chatml(EXPECTED_CHATML_WITHOUT_SYSTEM)
         assert isinstance(result, dict)
         assert result == EXPECTED_INPUT
 
