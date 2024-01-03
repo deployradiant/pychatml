@@ -51,9 +51,19 @@ Create an issue or discussion in this repository.
 
 Or, reach out to our team! [@jakob_frick](https://twitter.com/frick_jakob/), [@__anjor](https://twitter.com/__anjor), [@maxnajork](https://twitter.com/maxnajork) on X or [team@radiantai.com](mailto:team@radiantai.com).
 
+## How to create a new release
+
+A new release will automatically be published to pypi. For this to happen you need to
+- update the version specificed in `setup.py`
+- create a `git tag` with the version you want to release and push it via `git push --tags`
+- create a new release in Github
+
+A Github action will automatically publish the new version to pypi.
+
 ## Contributing Guidelines
 
 Thank you for your interest in contributing to our project! Before you begin writing code, it would be helpful if you read these [contributing guidelines](CONTRIBUTING.md). Following them will make the contribution process easier and more efficient for everyone involved.
 
 Please note that the project is released with an [MIT License](https://opensource.org/licenses/MIT).
+
 
