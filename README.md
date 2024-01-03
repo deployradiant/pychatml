@@ -17,7 +17,7 @@ Makes it easy to integrate between different chat formats and models.
 ```python
 from pychatml.llama2_converter import Llama2
 
-PROMPT = """[INST] Hi, how are you? [/INST] Good thanks! 
+PROMPT = """[INST] Hi, how are you? [/INST] Good thanks!
 [INST] Can you help me with this math program? [/INST]"""
 
 converter = Llama2()
@@ -38,7 +38,7 @@ converter.to_chatml(PROMPT)
  - [x] Llama 2
  - [x] Anthropic
  - [x] Alpaca
- - [ ] Vicuna/ShareGPT
+ - [x] Vicuna/ShareGPT (from https://github.com/lm-sys/FastChat/blob/e67b21dcbde91a5ad9740b081c59c433093f54da/fastchat/conversation.py#L394C1-L404C2)
 
 ## Why?
 

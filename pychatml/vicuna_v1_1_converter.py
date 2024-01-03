@@ -12,7 +12,7 @@ class Vicuna_v1_1(AbstractConverter):
         """
         Converts the vicuna interface to the ChatML format
 
-        Vicuna interface from https://huggingface.co/junelee/wizard-vicuna-13b/discussions/1
+        Vicuna v1.1 interface from https://github.com/lm-sys/FastChat/blob/e67b21dcbde91a5ad9740b081c59c433093f54da/fastchat/conversation.py#L394C1-L404C2
 
         Args:
             prompt (string): The prompt to convert
