@@ -12,20 +12,24 @@ class Llama2(AbstractConverter):
         messages = []
 
         for instruction in prompt.split("[INST] "):
-            system_message = re.search(r"<<SYS>>\n((.|\n)*)\n<</SYS>>\n\n", instruction)
+            system_message = re.search(
+                r"<<SYS>>\n((.|\n)*)\n<</SYS>>\n\n", instruction)
             if system_message:
-                messages.append({"role": "system", "content": system_message.group(1)})
+                messages.append(
+                    {"role": "system", "content": system_message.group(1)})
                 instruction = instruction.replace(system_message.group(0), "")
 
             user_message = re.search(r"(.*?) \[\/INST\]", instruction)
             if user_message:
-                messages.append({"role": "user", "content": user_message.group(1)})
+                messages.append(
+                    {"role": "user", "content": user_message.group(1)})
                 instruction = instruction.replace(user_message.group(0), "")
 
             assistant_message = re.search(r" (.*?) \n", instruction)
             if assistant_message:
                 messages.append(
-                    {"role": "assistant", "content": assistant_message.group(1)}
+                    {"role": "assistant",
+                        "content": assistant_message.group(1)}
                 )
 
         return messages
@@ -44,7 +48,8 @@ class Llama2(AbstractConverter):
                 continue
 
             if len(chat_messages) > 0 and chat_messages[-1]["role"] == message["role"]:
-                chat_messages[-1]["content"] += " " + message["content"].strip()
+                chat_messages[-1]["content"] += " " + \
+                    message["content"].strip()
             else:
                 chat_messages.append(message.copy())
 

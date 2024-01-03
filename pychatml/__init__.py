@@ -6,4 +6,3 @@
 from .anthropic import anthropic
 from .llama2 import llama2
 from .alpaca import alpaca
-from .vicuna_v1_1 import vicuna_v1_1

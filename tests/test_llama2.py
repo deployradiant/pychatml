@@ -8,7 +8,7 @@ You are a helpful, respectful and honest assistant. Always answer as helpfully a
 If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
 <</SYS>>
 
-Hi, how are you? [/INST] Good thanks! 
+Hi, how are you? [/INST] Good thanks!
 [INST] Can you help me with this math program? [/INST]"""
 
 EXPECTED_CHATML = [
