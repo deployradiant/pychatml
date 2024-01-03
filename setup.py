@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pychatml",
-    version="0.0.5",
+    version="0.0.6",
     description="A package for converting chat messages to and from ChatML format",
     author="Radiant AI",
     author_email="jakob@radiantai.com",
